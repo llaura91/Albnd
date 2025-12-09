@@ -1,0 +1,11 @@
+from albnd import views
+from django.urls import path
+
+
+urlpatterns = [
+    path('', views.listarPost.as_view(), name = 'inicio'),
+    path('postar/', views.criarPost.as_view(), name = 'postar'),
+    path('signup/', views.signup, name = 'signup'),
+    path('logout/', views.logout, name='logout'),
+    path('deletar/<int:pk>/', views.deletarPost.as_view(), name = 'deletar')
+]

@@ -1,0 +1,135 @@
+/* ======== BASE ======== */
+body {
+    background-color: #e2d397; /* fundo clarinho */
+    font-family: "Inter", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* ======== NAVBAR ======== */
+.navbar {
+    background-color: #0194be !important;
+}
+
+.nav-link, .navbar-text {
+    color: #fff !important;
+}
+
+/* ======== FEED ======== */
+.posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* ======== COR DOS CARDS E FORMULÁRIO (MESMA COR) ======== */
+.card {
+    background-color: #fef9e8 !important; /* igual ao form */
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    border: none;
+    overflow: hidden;
+}
+
+/* ======== FORMULÁRIO VERDADEIRAMENTE CENTRALIZADO ======== */
+
+.row {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100%;
+    margin: 0 auto !important;
+}
+
+.col-md-6 {
+    max-width: 500px;
+    width: 100%;
+}
+
+/* ======== FORMULÁRIO (inputs e selects) ======== */
+
+.row .card input,
+.row .card textarea,
+.row .card select {
+    width: 100%;
+    background-color: #f8fcff;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #0fc3e8;
+    outline: none;
+    margin-bottom: 12px;
+    transition: border .2s;
+}
+
+.row .card input:focus,
+.row .card textarea:focus,
+.row .card select:focus {
+    border-color: #0194be;
+}
+
+/* ======== TEXTO E TÍTULOS ======== */
+
+/* Título */
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0194be; /* azul médio */
+}
+
+/* Autor (cor própria e destacada) */
+.post-autor {
+    color: #0fc3e8; 
+    font-weight: 700;
+}
+
+/* Artista, Avaliação e Top 3 — mesma cor */
+.post-artista,
+.post-avaliacao,
+.card-body ol {
+    color: #481800;
+    font-weight: 600;
+    font-size: .95rem;
+}
+
+/* ======== IMAGENS ======== */
+.img-container {
+    width: 100%;
+    max-height: 380px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5eccc;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.img-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* ======== BOTÕES ======== */
+.btn-primary {
+    background-color: #0194be !important;
+    border: none !important;
+    border-radius: 25px;
+    padding: 10px 20px;
+}
+
+.btn-primary:hover {
+    background-color: #0fc3e8 !important;
+}
+
+.btn-secondary {
+    background-color: #481800 !important;
+    color: #fff !important;
+    border-radius: 25px;
+    padding: 10px 20px;
+}
+
+.btn-danger {
+    border-radius: 20px !important;
+}

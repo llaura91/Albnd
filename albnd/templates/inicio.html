@@ -1,0 +1,43 @@
+{% extends "mestre.html" %}
+{% block titulo %}Home{% endblock titulo %}
+
+{% block conteudo %}
+<div class="posts">
+    {% for post in posts %}
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ post.titulo }}</h5>
+                <p class="post-artista"><strong>Artista:</strong> {{ post.artista }}</p>
+                <p class="post-autor">Por: {{ post.autor.username }}</p>
+                <p class="post-avaliacao"><strong>Avaliação:</strong> {{ post.avaliacao }}/10</p>
+                {% if post.imagem %}
+                    <div class="img-container">
+                        <img src="{{ post.imagem.url }}" class="img-fluid" alt="{{ post.titulo }}">
+                    </div>
+                {% endif %}
+                <p class="card-text">{{ post.descricao }}</p>
+                
+                <div class="mt-3">
+                    <h6><strong>Top 3</strong></h6>
+                    <ol>
+                        <li>{{ post.avaliacao_1 }}</li>
+                        <li>{{ post.avaliacao_2 }}</li>
+                        <li>{{ post.avaliacao_3 }}</li>
+                    </ol>
+                </div>
+                
+                <div class="text-end">
+                    {% if post.autor == request.user %}
+                        <a href="{% url 'deletar' post.pk %}" class="btn btn-danger btn-sm">Excluir</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <div class="text-center mt-4">
+            <p>Nenhuma postagem encontrada.</p>
+            <a href="{% url 'postar' %}" class="btn btn-primary">Criar Postagem</a>
+        </div>
+    {% endfor %}
+</div>
+{% endblock conteudo %}

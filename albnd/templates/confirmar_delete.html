@@ -1,0 +1,17 @@
+{% extends "mestre.html" %}
+
+{% block titulo %}Confirmar delete{% endblock titulo %}
+
+{% block conteudo %}
+<div class="form-container">
+    <h2 class="mb-4">Confirmar Exclusão</h2>
+    <p class="mb-4">Tem certeza que deseja deletar esse post "{{ object.titulo }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-danger">Confirmar</button>
+            <a href="{% url 'inicio' %}" class="btn btn-secondary">Cancelar</a>
+        </div>
+    </form>
+</div>
+{% endblock conteudo %}
