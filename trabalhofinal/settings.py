@@ -39,7 +39,7 @@ SECURE_HSTS_INCLUDE_SUBDOMAINS = False if DEBUG else True
 SECURE_HSTS_PRELOAD = False if DEBUG else True
 
 
-ALLOWED_HOSTS = ['127.0.0.1', 'llaura91.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'llaura91.pythonanywhere.com', 'trabalhofinal-nti5.onrender.com']
 
 
 # Application definition
