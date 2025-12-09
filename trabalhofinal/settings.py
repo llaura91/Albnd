@@ -11,10 +11,12 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+load_dotenv(BASE_DIR / '.env')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'uploads'
 
@@ -22,12 +24,19 @@ MEDIA_ROOT = BASE_DIR / 'uploads'
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-e(77z&r$a15n6jraa73!$9cv*!wqudu%sxmpcugqe*exvduh7='
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+SESSION_COOKIE_SECURE = False if DEBUG else True
+SECURE_SSL_REDIRECT = False if DEBUG else True
+CSRF_COOKIE_SECURE = False if DEBUG else True
+SECURE_HSTS_SECONDS = 0 if DEBUG else 31536000
+SECURE_HSTS_INCLUDE_SUBDOMAINS = False if DEBUG else True
+SECURE_HSTS_PRELOAD = False if DEBUG else True
 
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = ['127.0.0.1', 'llaura91.pythonanywhere.com']
 
 
 # Application definition
@@ -56,6 +65,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'servestatic.middleware.ServeStaticMiddleware',
+
 ]
 
 ROOT_URLCONF = 'trabalhofinal.urls'
@@ -124,10 +135,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'static'
+STATICFILES_DIRS  = []
 
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
 
 
 # Default primary key field type
