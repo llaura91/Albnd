@@ -30,7 +30,7 @@ if not SECRET_KEY:
     raise ValueError("SECRET_KEY não configurada. Configure no Render ou no .env")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 SESSION_COOKIE_SECURE = False if DEBUG else True
 SECURE_SSL_REDIRECT = False if DEBUG else True
 CSRF_COOKIE_SECURE = False if DEBUG else True
